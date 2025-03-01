@@ -27,6 +27,7 @@ const ImageMosaicCanvas: React.FC = () => {
   const [dragStart, setDragStart] = useState<Position>({ x: 0, y: 0 });
   const [showPixelNumbers, setShowPixelNumbers] = useState<boolean>(true);
   const [transparentAsWhite] = useState<boolean>(true);
+  const [showOverlay, setShowOverlay] = useState<boolean>(true);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [processingProgress, setProcessingProgress] = useState<number>(0);
   
@@ -132,15 +133,210 @@ const ImageMosaicCanvas: React.FC = () => {
     { color: '#636363', image: 'gunpowder.png', text: '1' },
     { color: '#494949', image: 'gunpowder.png', text: '2' },
 
-    { color: '#4576FB', image: 'lapisore.png', text: '-1' },
-    { color: '#3B64D5', image: 'lapisore.png', text: '0' },
-    { color: '#3151AA', image: 'lapisore.png', text: '1' },
-    { color: '#253C7C', image: 'lapisore.png', text: '2' },
+    { color: '#660A0A', image: 'netherwart.png', text: '-1' },
+    { color: '#570708', image: 'netherwart.png', text: '0' },
+    { color: '#470505', image: 'netherwart.png', text: '1' },
+    { color: '#350403', image: 'netherwart.png', text: '2' },
+    
+    { color: '#57D6CF', image: 'pris.png', text: '-1' },
+    { color: '#4AB4AF', image: 'pris.png', text: '0' },
+    { color: '#3C908C', image: 'pris.png', text: '1' },
+    { color: '#3C908C', image: 'pris.png', text: '2' },
+
+    { color: '#76AA39', image: 'grass.png', text: '-1' },
+    { color: '#649031', image: 'grass.png', text: '0' },
+    { color: '#517329', image: 'grass.png', text: '1' },
+    { color: '#3D551F', image: 'grass.png', text: '2' },
+
+    { color: '#F9EC52', image: 'gold.png', text: '-1' },
+    { color: '#D2C746', image: 'gold.png', text: '0' },
+    { color: '#A8A039', image: 'gold.png', text: '1' },
+    { color: '#7A752B', image: 'gold.png', text: '2' },
+
+    { color: '#C1C1C1', image: 'cobweb.png', text: '-1' },
+    { color: '#A3A3A3', image: 'cobweb.png', text: '0' },
+    { color: '#838383', image: 'cobweb.png', text: '1' },
+    { color: '#606060', image: 'cobweb.png', text: '2' },
+
+    { color: '#9897FC', image: 'ice.png', text: '-1' },
+    { color: '#8181D5', image: 'ice.png', text: '0' },
+    { color: '#6767AA', image: 'ice.png', text: '1' },
+    { color: '#4C4C7C', image: 'ice.png', text: '2' },
+
+    { color: '#0C7210', image: 'oak.png', text: '-1' },
+    { color: '#08600D', image: 'oak.png', text: '0' },
+    { color: '#064E08', image: 'oak.png', text: '1' },
+    { color: '#043A05', image: 'oak.png', text: '2' },
 
     { color: '#ffffff', image: 'snow.png', text: '-1' },
     { color: '#D8D8D8', image: 'snow.png', text: '0' },
     { color: '#ACACAC', image: 'snow.png', text: '1' },
     { color: '#7E7E7E', image: 'snow.png', text: '2' },
+
+    { color: '#676767', image: 'ghast.png', text: '-1' },
+    { color: '#575757', image: 'ghast.png', text: '0' },
+    { color: '#474747', image: 'ghast.png', text: '1' },
+    { color: '#353535', image: 'ghast.png', text: '2' },
+
+    { color: '#3B3AFB', image: 'lapisblock.png', text: '-1' },
+    { color: '#3332D4', image: 'lapisblock.png', text: '0' },
+    { color: '#2A29A9', image: 'lapisblock.png', text: '1' },
+    { color: '#201F7B', image: 'lapisblock.png', text: '2' },
+
+    { color: '#856E44', image: 'darklog.png', text: '-1' },
+    { color: '#715D3A', image: 'darklog.png', text: '0' },
+    { color: '#5B4C2F', image: 'darklog.png', text: '1' },
+    { color: '#433925', image: 'darklog.png', text: '2' },
+
+    { color: '#8F3031', image: 'brick.png', text: '-1' },
+    { color: '#7A2A2B', image: 'brick.png', text: '0' },
+    { color: '#622324', image: 'brick.png', text: '1' },
+    { color: '#491C1C', image: 'brick.png', text: '2' },
+
+    { color: '#4576FB', image: 'lapisore.png', text: '-1' },
+    { color: '#3B64D5', image: 'lapisore.png', text: '0' },
+    { color: '#3151AA', image: 'lapisore.png', text: '1' },
+    { color: '#253C7C', image: 'lapisore.png', text: '2' },
+
+    { color: '#19D33C', image: 'emerald.png', text: '-1' },
+    { color: '#15B334', image: 'emerald.png', text: '0' },
+    { color: '#15B334', image: 'emerald.png', text: '1' },
+    { color: '#0A6820', image: 'emerald.png', text: '2' },
+
+    { color: '#0A6820', image: 'birch.png', text: '-1' },
+    { color: '#654329', image: 'birch.png', text: '0' },
+    { color: '#523722', image: 'birch.png', text: '1' },
+    { color: '#3D2A1A', image: 'birch.png', text: '2' },
+
+    { color: '#CBA999', image: 'egg.png', text: '-1' },
+    { color: '#AC8F82', image: 'egg.png', text: '0' },
+    { color: '#897368', image: 'egg.png', text: '1' },
+    { color: '#64554D', image: 'egg.png', text: '2' },
+
+    { color: '#954B27', image: 'magma.png', text: '-1' },
+    { color: '#7F4022', image: 'magma.png', text: '0' },
+    { color: '#66341D', image: 'magma.png', text: '1' },
+    { color: '#4B2817', image: 'magma.png', text: '2' },
+
+    { color: '#8B5063', image: 'beet.png', text: '-1' },
+    { color: '#764455', image: 'beet.png', text: '0' },
+    { color: '#5F3845', image: 'beet.png', text: '1' },
+    { color: '#462B34', image: 'beet.png', text: '2' },
+
+    { color: '#676380', image: 'mycelium.png', text: '-1' },
+    { color: '#57546D', image: 'mycelium.png', text: '0' },
+    { color: '#474558', image: 'mycelium.png', text: '1' },
+    { color: '#353441', image: 'mycelium.png', text: '2' },
+
+    { color: '#B27C2B', image: 'glowstone.png', text: '-1' },
+    { color: '#966926', image: 'glowstone.png', text: '0' },
+    { color: '#79551F', image: 'glowstone.png', text: '1' },
+    { color: '#593F18', image: 'glowstone.png', text: '2' },
+
+    { color: '#5E6B33', image: 'slime.png', text: '-1' },
+    { color: '#505B2C', image: 'slime.png', text: '0' },
+    { color: '#414A25', image: 'slime.png', text: '1' },
+    { color: '#31371D', image: 'slime.png', text: '2' },
+
+    { color: '#964748', image: 'spider.png', text: '-1' },
+    { color: '#964748', image: 'spider.png', text: '0' },
+    { color: '#663233', image: 'spider.png', text: '1' },
+    { color: '#4B2627', image: 'spider.png', text: '2' },
+
+    { color: '#4B2627', image: 'soulsand.png', text: '-1' },
+    { color: '#2D211D', image: 'soulsand.png', text: '0' },
+    { color: '#251C19', image: 'soulsand.png', text: '1' },
+    { color: '#1D1614', image: 'soulsand.png', text: '2' },
+
+    { color: '#7D625A', image: 'brownmush.png', text: '-1' },
+    { color: '#6A544D', image: 'brownmush.png', text: '0' },
+    { color: '#56443F', image: 'brownmush.png', text: '1' },
+    { color: '#40332F', image: 'brownmush.png', text: '2' },
+
+    { color: '#4F5353', image: 'ironnugget.png', text: '-1' },
+    { color: '#444747', image: 'ironnugget.png', text: '0' },
+    { color: '#373A3A', image: 'ironnugget.png', text: '1' },
+    { color: '#2A2C2C', image: 'ironnugget.png', text: '2' },
+
+    { color: '#704250', image: 'chorus.png', text: '-1' },
+    { color: '#5F3944', image: 'chorus.png', text: '0' },
+    { color: '#4D2F38', image: 'chorus.png', text: '1' },
+    { color: '#39242A', image: 'chorus.png', text: '2' },
+
+    { color: '#443853', image: 'purpur.png', text: '-1' },
+    { color: '#3B3047', image: 'purpur.png', text: '0' },
+    { color: '#302839', image: 'purpur.png', text: '1' },
+    { color: '#251F2C', image: 'purpur.png', text: '2' },
+
+    { color: '#442E22', image: 'podzol.png', text: '-1' },
+    { color: '#3A281E', image: 'podzol.png', text: '0' },
+    { color: '#302119', image: 'podzol.png', text: '1' },
+    { color: '#251A14', image: 'podzol.png', text: '2' },
+
+    { color: '#454A28', image: 'poisonous.png', text: '-1' },
+    { color: '#3B3F23', image: 'poisonous.png', text: '0' },
+    { color: '#30341D', image: 'poisonous.png', text: '1' },
+    { color: '#252818', image: 'poisonous.png', text: '2' },
+
+    { color: '#84382D', image: 'apple.png', text: '-1' },
+    { color: '#703027', image: 'apple.png', text: '0' },
+    { color: '#5A2820', image: 'apple.png', text: '1' },
+    { color: '#431E1A', image: 'apple.png', text: '2' },
+
+    { color: '#221712', image: 'charcoal.png', text: '-1' },
+    { color: '#1E1410', image: 'charcoal.png', text: '0' },
+    { color: '#251C19', image: 'charcoal.png', text: '1' },
+    { color: '#140E0B', image: 'charcoal.png', text: '2' },
+
+    { color: '#B52F31', image: 'crimsonnylium.png', text: '-1' },
+    { color: '#99292B', image: 'crimsonnylium.png', text: '0' },
+    { color: '#7B2223', image: 'crimsonnylium.png', text: '1' },
+    { color: '#5A1B1B', image: 'crimsonnylium.png', text: '2' },
+
+    { color: '#8A3A59', image: 'crimsonstem.png', text: '-1' },
+    { color: '#75324B', image: 'crimsonstem.png', text: '0' },
+    { color: '#5E293E', image: 'crimsonstem.png', text: '1' },
+    { color: '#46202F', image: 'crimsonstem.png', text: '2' },
+
+    { color: '#531A1E', image: 'crimsonhyphae.png', text: '-1' },
+    { color: '#47171A', image: 'crimsonhyphae.png', text: '0' },
+    { color: '#391416', image: 'crimsonhyphae.png', text: '1' },
+    { color: '#2C1112', image: 'crimsonhyphae.png', text: '2' },
+
+    { color: '#1B747B', image: 'warpednylium.png', text: '-1' },
+    { color: '#176269', image: 'warpednylium.png', text: '0' },
+    { color: '#144F55', image: 'warpednylium.png', text: '1' },
+    { color: '#103B3F', image: 'warpednylium.png', text: '2' },
+
+    { color: '#378482', image: 'warpedstem.png', text: '-1' },
+    { color: '#2F706E', image: 'warpedstem.png', text: '0' },
+    { color: '#275B59', image: 'warpedstem.png', text: '1' },
+    { color: '#1E4342', image: 'warpedstem.png', text: '2' },
+
+    { color: '#4D2938', image: 'warpedhyphae.png', text: '-1' },
+    { color: '#422330', image: 'warpedhyphae.png', text: '0' },
+    { color: '#361E28', image: 'warpedhyphae.png', text: '1' },
+    { color: '#29181F', image: 'warpedhyphae.png', text: '2' },
+
+    { color: '#1EAB7C', image: 'warpedwart.png', text: '-1' },
+    { color: '#1A9169', image: 'warpedwart.png', text: '0' },
+    { color: '#167555', image: 'warpedwart.png', text: '1' },
+    { color: '#11563F', image: 'warpedwart.png', text: '2' },
+
+    { color: '#5B5B5B', image: 'deepslate.png', text: '-1' },
+    { color: '#4E4E4E', image: 'deepslate.png', text: '0' },
+    { color: '#3F3F3F', image: 'deepslate.png', text: '1' },
+    { color: '#2F2F2F', image: 'deepslate.png', text: '2' },
+
+    { color: '#D3A78C', image: 'rawiron.png', text: '-1' },
+    { color: '#B28D76', image: 'rawiron.png', text: '0' },
+    { color: '#8E725F', image: 'rawiron.png', text: '1' },
+    { color: '#685446', image: 'rawiron.png', text: '2' },
+
+    { color: '#769E8D', image: 'lichen.png', text: '-1' },
+    { color: '#648678', image: 'lichen.png', text: '0' },
+    { color: '#516B60', image: 'lichen.png', text: '1' },
+    { color: '#3D4F47', image: 'lichen.png', text: '2' },
   ]);
   
   // 이미지 캐시를 위한 상태
@@ -334,28 +530,30 @@ const ImageMosaicCanvas: React.FC = () => {
               if (imageObj && imageObj.complete) {
                 resultCtx.fillStyle = closestPalette.color;
                 resultCtx.fillRect(x * 32, y * 32, 32, 32);
-                resultCtx.drawImage(imageObj, x * 32, y * 32, 32, 32);
+                if(showOverlay) resultCtx.drawImage(imageObj, x * 32, y * 32, 32, 32);
               } else {
                 // 색상으로 대체
                 resultCtx.fillStyle = closestPalette.color;
                 resultCtx.fillRect(x * 32, y * 32, 32, 32);
               }
               
-              // 픽셀 숫자 추가
-              if (showPixelNumbers) {
-                // 배경 그리기
-                resultCtx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-                resultCtx.fillRect(x * 32 + 16, y * 32 + 16, 16, 16);
-                
-                // 텍스트 설정
-                resultCtx.fillStyle = '#000000';
-                resultCtx.font = '10px Pretendard';
-                resultCtx.textAlign = 'right';
-                resultCtx.textBaseline = 'bottom';
-                
-                // 텍스트 그리기
-                const pixelText = `${closestPalette ? closestPalette.text : ''}`;
-                resultCtx.fillText(pixelText, (x * 32) + 30, (y * 32) + 30);
+              if(showOverlay) {
+                // 픽셀 숫자 추가
+                if (showPixelNumbers) {
+                  // 배경 그리기
+                  resultCtx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                  resultCtx.fillRect(x * 32 + 16, y * 32 + 16, 16, 16);
+
+                  // 텍스트 설정
+                  resultCtx.fillStyle = '#000000';
+                  resultCtx.font = '10px Pretendard';
+                  resultCtx.textAlign = 'right';
+                  resultCtx.textBaseline = 'bottom';
+
+                  // 텍스트 그리기
+                  const pixelText = `${closestPalette ? closestPalette.text : ''}`;
+                  resultCtx.fillText(pixelText, (x * 32) + 30, (y * 32) + 30);
+                }
               }
             }
           }
@@ -376,57 +574,58 @@ const ImageMosaicCanvas: React.FC = () => {
     
     // 그리드 그리기
     // 그리드 캔버스 따로 생성해서 오버레이 (성능 개선)
-    const gridCanvas = document.createElement('canvas');
-    gridCanvas.width = resultCanvas.width;
-    gridCanvas.height = resultCanvas.height;
-    const gridCtx = gridCanvas.getContext('2d');
-    
-    if (gridCtx) {
-      // 모든 픽셀마다 얕은 회색 그리드 그리기 (최적화: 상대적으로 적은 수의 선만 그림)
-      gridCtx.strokeStyle = "#777777";
-      gridCtx.lineWidth = 0.5;
+    if(showOverlay) {
+      const gridCanvas = document.createElement('canvas');
+      gridCanvas.width = resultCanvas.width;
+      gridCanvas.height = resultCanvas.height;
+      const gridCtx = gridCanvas.getContext('2d');
       
-      // 세로선
-      for (let x = 0; x <= imageData.width; x++) {
-        gridCtx.beginPath();
-        gridCtx.moveTo(x * 32, 0);
-        gridCtx.lineTo(x * 32, gridCanvas.height);
-        gridCtx.stroke();
-      }
-      
-      // 가로선
-      for (let y = 0; y <= imageData.height; y++) {
-        gridCtx.beginPath();
-        gridCtx.moveTo(0, y * 32);
-        gridCtx.lineTo(gridCanvas.width, y * 32);
-        gridCtx.stroke();
-      }
-      gridCtx.strokeStyle = "#00ff00";
-      gridCtx.lineWidth = 3;
-      
-      // 세로선
-      for (let x = 0; x <= imageData.width; x++) {
-        gridCtx.beginPath();
-        gridCtx.moveTo(x * 32 * 32, 0);
-        gridCtx.lineTo(x * 32 * 32, gridCanvas.height);
-        gridCtx.stroke();
-      }
-      
-      // 가로선
-      for (let y = 0; y <= imageData.height; y++) {
-        gridCtx.beginPath();
-        gridCtx.moveTo(0, y * 32 * 32);
-        gridCtx.lineTo(gridCanvas.width, y * 32 * 32);
-        gridCtx.stroke();
-      }
-      // 그리드 캔버스의 내용을 결과 캔버스에 그림
-      resultCtx.drawImage(gridCanvas, 0, 0);
-    }
+      if (gridCtx) {
+        // 모든 픽셀마다 얕은 회색 그리드 그리기 (최적화: 상대적으로 적은 수의 선만 그림)
+        gridCtx.strokeStyle = "#777777";
+        gridCtx.lineWidth = 0.5;
 
+        // 세로선
+        for (let x = 0; x <= imageData.width; x++) {
+          gridCtx.beginPath();
+          gridCtx.moveTo(x * 32, 0);
+          gridCtx.lineTo(x * 32, gridCanvas.height);
+          gridCtx.stroke();
+        }
+
+        // 가로선
+        for (let y = 0; y <= imageData.height; y++) {
+          gridCtx.beginPath();
+          gridCtx.moveTo(0, y * 32);
+          gridCtx.lineTo(gridCanvas.width, y * 32);
+          gridCtx.stroke();
+        }
+        gridCtx.strokeStyle = "#00ff00";
+        gridCtx.lineWidth = 3;
+
+        // 세로선
+        for (let x = 0; x <= imageData.width; x++) {
+          gridCtx.beginPath();
+          gridCtx.moveTo(x * 32 * 32, 0);
+          gridCtx.lineTo(x * 32 * 32, gridCanvas.height);
+          gridCtx.stroke();
+        }
+
+        // 가로선
+        for (let y = 0; y <= imageData.height; y++) {
+          gridCtx.beginPath();
+          gridCtx.moveTo(0, y * 32 * 32);
+          gridCtx.lineTo(gridCanvas.width, y * 32 * 32);
+          gridCtx.stroke();
+        }
+        // 그리드 캔버스의 내용을 결과 캔버스에 그림
+        resultCtx.drawImage(gridCanvas, 0, 0);
+      }
+    }
     // 처리 완료
     setProcessedCanvas(resultCanvas);
     setIsProcessing(false);
-  }, [imageData, showPixelNumbers, findClosestColor]);
+  }, [imageData, showPixelNumbers, findClosestColor, showOverlay]);
   
   // 이미지가 로드될 때마다 처리 실행
   useEffect(() => {
@@ -467,7 +666,7 @@ const ImageMosaicCanvas: React.FC = () => {
 
   // 줌 조절 (버튼 기반)
   const handleZoomIn = (): void => {
-    setZoom(prevZoom => Math.min(prevZoom + 0.2, 5));  // 최대 5배 줌 (성능 위해 제한)
+    setZoom(prevZoom => Math.min(prevZoom + 0.5, 10));  // 최대 5배 줌 (성능 위해 제한)
     
     // 중앙 기준으로 줌인
     const container = containerRef.current;
@@ -476,12 +675,12 @@ const ImageMosaicCanvas: React.FC = () => {
       const centerX = containerRect.width / 2;
       const centerY = containerRect.height / 2;
       
-      handleZoomAtPoint(centerX, centerY, 0.2);
+      handleZoomAtPoint(centerX, centerY, 0.5);
     }
   };
   
   const handleZoomOut = (): void => {
-    setZoom(prevZoom => Math.max(prevZoom - 0.2, 0.2));  // 최소 0.2배 줌
+    setZoom(prevZoom => Math.max(prevZoom - 0.5, 0.5));  // 최소 0.2배 줌
     
     // 중앙 기준으로 줌아웃
     const container = containerRef.current;
@@ -490,7 +689,7 @@ const ImageMosaicCanvas: React.FC = () => {
       const centerX = containerRect.width / 2;
       const centerY = containerRect.height / 2;
       
-      handleZoomAtPoint(centerX, centerY, -0.2);
+      handleZoomAtPoint(centerX, centerY, -0.5);
     }
   };
   
@@ -510,7 +709,7 @@ const ImageMosaicCanvas: React.FC = () => {
     const beforeZoomPosY = (mouseY - position.y) / zoom;
     
     // 새 줌 값 계산 (제한 적용)
-    const newZoom = Math.min(Math.max(zoom + zoomDelta, 0.2), 5);
+    const newZoom = Math.min(Math.max(zoom + zoomDelta, 0.5), 10);
     
     // 줌 후의 좌표 계산
     const afterZoomPosX = beforeZoomPosX * newZoom;
@@ -554,7 +753,7 @@ const ImageMosaicCanvas: React.FC = () => {
     e.preventDefault();
     
     // 줌 변화량 계산 (휠 방향에 따라)
-    const zoomDelta = e.deltaY > 0 ? -0.1 : 0.1; // 더 작은 증분 사용
+    const zoomDelta = e.deltaY > 0 ? -0.5 : 0.5; // 더 작은 증분 사용
     
     // 마우스 위치 기준으로 줌 처리
     handleZoomAtPoint(e.clientX, e.clientY, zoomDelta);
@@ -649,12 +848,19 @@ const ImageMosaicCanvas: React.FC = () => {
             <RotateCcw size={20} />
           </button>
           <button 
+            onClick={() => setShowOverlay(!showOverlay)} 
+            className={`p-2 ${showOverlay ? 'bg-blue-500' : 'bg-gray-500'} text-white rounded`}
+            title="오버레이 표시"
+          >
+            오버레이 {showOverlay ? 'ON' : 'OFF'}
+          </button>
+          <button 
             onClick={togglePixelNumbers} 
             className={`p-2 ${showPixelNumbers ? 'bg-green-500' : 'bg-gray-500'} text-white rounded disabled:opacity-50`}
-            title="픽셀 번호 표시/숨기기"
+            title="명암 번호 표시/숨기기"
             disabled={isProcessing || !imageData}
           >
-            #{showPixelNumbers ? '숨기기' : '표시'}
+            명암 {showPixelNumbers ? '숨기기' : '표시'}
           </button>
         </div>
       
