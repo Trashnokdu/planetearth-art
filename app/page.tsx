@@ -108,10 +108,10 @@ const ImageMosaicCanvas: React.FC = () => {
     { color: '#8E5227', image: 'orange.png', text: '1' },
     { color: '#683D1E', image: 'orange.png', text: '2' },
 
-    { color: '#FFFCF4', image: 'bone.png', text: '-1' },
-    { color: '#D8D4CE', image: 'bone.png', text: '0' },
-    { color: '#ACA9A4', image: 'bone.png', text: '1' },
-    { color: '#7D7C78', image: 'bone.png', text: '2' },
+    { color: '#FFFCF4', image: 'snow.png', text: '-1' },
+    { color: '#D8D4CE', image: 'snow.png', text: '0' },
+    { color: '#ACA9A4', image: 'snow.png', text: '1' },
+    { color: '#7D7C78', image: 'snow.png', text: '2' },
 
     { color: '#F6E69E', image: 'pumpkin.png', text: '-1' },
     { color: '#D0C386', image: 'pumpkin.png', text: '0' },
