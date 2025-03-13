@@ -615,7 +615,7 @@ const ImageMosaicCanvas: React.FC = () => {
       const centerX = containerRect.width / 2;
       const centerY = containerRect.height / 2;
       
-      handleZoomAtPoint(centerX, centerY, 0.5);
+      handleZoomAtPoint(centerX, centerY, 0.1);
     }
   };
   
@@ -629,7 +629,7 @@ const ImageMosaicCanvas: React.FC = () => {
       const centerX = containerRect.width / 2;
       const centerY = containerRect.height / 2;
       
-      handleZoomAtPoint(centerX, centerY, -0.5);
+      handleZoomAtPoint(centerX, centerY, -0.1);
     }
   };
   
@@ -649,7 +649,7 @@ const ImageMosaicCanvas: React.FC = () => {
     const beforeZoomPosY = (mouseY - position.y) / zoom;
     
     // 새 줌 값 계산 (제한 적용)
-    const newZoom = Math.min(Math.max(zoom + zoomDelta, 0.5), 10);
+    const newZoom = Math.min(Math.max(zoom + zoomDelta, 0.1), 10);
     
     // 줌 후의 좌표 계산
     const afterZoomPosX = beforeZoomPosX * newZoom;
@@ -693,7 +693,7 @@ const ImageMosaicCanvas: React.FC = () => {
     e.preventDefault();
     
     // 줌 변화량 계산 (휠 방향에 따라)
-    const zoomDelta = e.deltaY > 0 ? -0.5 : 0.5; // 더 작은 증분 사용
+    const zoomDelta = e.deltaY > 0 ? -0.1 : 0.1; // 더 작은 증분 사용
     
     // 마우스 위치 기준으로 줌 처리
     handleZoomAtPoint(e.clientX, e.clientY, zoomDelta);
