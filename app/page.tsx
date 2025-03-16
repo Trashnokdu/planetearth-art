@@ -277,9 +277,6 @@ const ImageMosaicCanvas: React.FC = () => {
     { color: '#648678', image: 'https://file.nokdu.dev/pe-art/lichen.png', text: '0' },
     { color: '#516B60', image: 'https://file.nokdu.dev/pe-art/lichen.png', text: '1' },
     { color: '#3D4F47', image: 'https://file.nokdu.dev/pe-art/lichen.png', text: '2' },
-    { color: '#D7D3CD', image: 'https://file.nokdu.dev/pe-art/bone.png', text: '0' },
-    { color: '#ACA8A3', image: 'https://file.nokdu.dev/pe-art/bone.png', text: '1' },
-    { color: '#7C7B77', image: 'https://file.nokdu.dev/pe-art/bone.png', text: '2' },
   ]);
   
   // 이미지 캐시를 위한 상태
